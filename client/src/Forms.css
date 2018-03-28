@@ -1,0 +1,7 @@
+#reactForm{
+	border: 2px dashed rgba(0,0,0,.5);
+}
+
+#formContainer > * {
+	display: block;
+}

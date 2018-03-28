@@ -1,26 +1,39 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import './App.css';
 import axios from 'axios'
 
+//components
+import Forms from './Forms'
+import AddForm from './AddForm'
+
 class App extends Component {
+  state = {
+    fields: []
+  }
+
   componentDidMount() {
     axios.get('http://localhost:3001/fields').then(resp => {
-      console.log(resp.data)
+      this.setState({
+        fields: resp.data
+      })
     })
   }
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router>
+        <div>Nav
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/addform">Add Form</Link></li>
+          </ul>
+          <Switch>
+            <Route exact path="/" render={() => <Forms fields={this.state.fields} />} /> 
+            <Route path="/addform" component={AddForm} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
