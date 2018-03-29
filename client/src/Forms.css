@@ -2,7 +2,6 @@ textarea {
 	resize: vertical;
 }
 #reactForm{
-	border: 2px dashed rgba(0,0,0,.5);
 	display: flex;
 	justify-content: center;
 }
@@ -15,34 +14,27 @@ textarea {
 }
 
 
-
-#formContainer {
-	min-width: 400px;
+#formContainer{
 	display: flex;
 	flex-flow: column wrap;
+	min-width: 400px;
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
 	border-radius: 0 0 5px 5px;
-
-}
-/*#formContainer > * {
-	font-size: 16px;
-	display: block;
-	margin: 5px;
 	padding: 5px;
-	outline: none;
-	max-width: 100%;
-}*/
+}
+
 .posRel{
 	position: relative;
+	padding: 5px;
 }
 
-div > input, div > textarea, div > select {
+
+.posRel > input, .posRel > textarea, .posRel > select {
 	font-size: 16px;
-	display: block;
-	margin: 5px;
 	padding: 5px 5px 5px 30px;
+	display: block;
 	outline: none;
 	width: 100%;
 }
@@ -51,4 +43,15 @@ div > input, div > textarea, div > select {
 	position: absolute;
 	top: 12px;
 	left: 15px;
+}
+
+#submitForm{
+	width: 25%;
+	font-size: 16px;
+	margin: 5px;
+	border-radius: 3px;
+	outline: none;
+}
+#submitForm:active{
+	background-color: #ddd;
 }

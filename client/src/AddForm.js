@@ -14,9 +14,9 @@ class AddForm extends Component {
 		console.log('Check that spelling!')
 		return(
 			<div>
-				<h3>Add a field to the form</h3>
+				<h3>Add a field to the form - unfinished</h3>
 				<form>
-					<input type="text" placeholder="bottom text"/>
+					<input type="text" placeholder="placeholder text"/>
 					<button>Add Form</button>
 				</form>
 			</div>

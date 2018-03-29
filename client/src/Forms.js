@@ -8,12 +8,14 @@ class Field extends Component{
 	render(){
 		if(this.props.data.type === 'select'){
 			return(
-				<select onChange={this.props.inputChange} id={this.props.data.id}>
-					<option value="SelectLang">Select Language</option>
-					{this.props.data.options.map((option, i) => (
-						<option value={option.value} key={'langOpt-' + i}>{option.label}</option>
-						))}
-				</select>
+				<div className="posRel">
+					<select onChange={this.props.inputChange} id={this.props.data.id}>
+						<option value="SelectLang">Select Language</option>
+						{this.props.data.options.map((option, i) => (
+							<option value={option.value} key={'langOpt-' + i}>{option.label}</option>
+							))}
+					</select>
+				</div>
 			)
 		}
 
@@ -59,7 +61,7 @@ class Forms extends Component{
 					<h3 id="formHeader">Give Me Your Data</h3>
 					<form id="formContainer">
 						{this.props.fields.map((field, i) => <Field data={field} key={'field-' + i} inputChange={this.handleChange}/>)}
-						<button onClick={this.handleSubmit} id="submitForm"><i className="fa fa-user"></i>Submit</button>
+						<button onClick={this.handleSubmit} id="submitForm"><i className="fa fa-user"></i> Submit</button>
 					</form>
 				</div>
 			</div>
