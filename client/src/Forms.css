@@ -1,7 +1,38 @@
+textarea {
+	resize: vertical;
+}
 #reactForm{
 	border: 2px dashed rgba(0,0,0,.5);
+	display: flex;
+	justify-content: center;
+}
+#reactForm h3{
+	text-align: center;
+	background-color: #afa;
+	margin: 0;
+	padding: 18px 0;
+	border-radius: 20px 20px 0 0;
 }
 
+#subContainer{
+	
+}
+
+#formContainer {
+	min-width: 400px;
+	display: flex;
+	flex-flow: column wrap;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+
+}
 #formContainer > * {
+	font-size: 16px;
 	display: block;
+	margin: 5px;
+	padding: 5px;
+	outline: none;
+	max-width: 100%;
+
 }

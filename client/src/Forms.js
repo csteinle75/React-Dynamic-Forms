@@ -6,10 +6,10 @@ class Field extends Component{
 	render(){
 		if(this.props.data.type === 'select'){
 			return(
-				<select id={this.props.data.id}>
+				<select onChange={this.props.inputChange} id={this.props.data.id}>
 					<option value="SelectLang">Select Language</option>
-					{this.props.data.options.map(option => (
-						<option value={option.value} key={'opt-' + option.value}>{option.label}</option>
+					{this.props.data.options.map((option, i) => (
+						<option value={option.value} key={'langOpt-' + i}>{option.label}</option>
 						))}
 				</select>
 			)
@@ -17,35 +17,43 @@ class Field extends Component{
 
 		if(this.props.data.type === 'textarea'){
 			return(
-				<textarea id={this.props.data.id}>
-				</textarea>
+				<textarea onChange={this.props.inputChange} id={this.props.data.id} placeholder="Your Comments" ></textarea>
 			)
 		}
 
 		//default action
 		return(
-			<input type={this.props.data.type} id={this.props.data.id} placeholder={this.props.data.label} />		
+			<input onChange={this.props.inputChange} type={this.props.data.type} id={this.props.data.id} placeholder={this.props.data.label} />		
 		)
 
 	}
 }
 
 class Forms extends Component{
+	state = {}
+
+	handleChange = (e) =>{
+		e.preventDefault()
+		this.setState({
+			[e.target.id]: e.target.value
+		})
+	}
 
 	handleSubmit = (e) =>{
 		e.preventDefault()
-		console.log('submitted form')
+		console.log(this.state)
 	}
 
 	render(){
-		console.log(this.props.fields)
 		return(
 			<div id="reactForm">
-				<h3>Give Me Your Data</h3>
-				<form id="formContainer">
-					{this.props.fields.map(field => <Field data={field} key={'field-' + field.id}/>)}
-					<button onClick={this.handleSubmit}>Submit</button>
-				</form>
+				<div id="subContainer">
+					<h3 id="formHeader">Give Me Your Data</h3>
+					<form id="formContainer">
+						{this.props.fields.map((field, i) => <Field data={field} key={'field-' + i} inputChange={this.handleChange}/>)}
+						<button onClick={this.handleSubmit} id="submitForm">Submit</button>
+					</form>
+				</div>
 			</div>
 		)
 	}
