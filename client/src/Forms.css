@@ -14,9 +14,7 @@ textarea {
 	border-radius: 20px 20px 0 0;
 }
 
-#subContainer{
-	
-}
+
 
 #formContainer {
 	min-width: 400px;
@@ -25,14 +23,32 @@ textarea {
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
+	border-radius: 0 0 5px 5px;
 
 }
-#formContainer > * {
+/*#formContainer > * {
 	font-size: 16px;
 	display: block;
 	margin: 5px;
 	padding: 5px;
 	outline: none;
 	max-width: 100%;
+}*/
+.posRel{
+	position: relative;
+}
 
+div > input, div > textarea, div > select {
+	font-size: 16px;
+	display: block;
+	margin: 5px;
+	padding: 5px 5px 5px 30px;
+	outline: none;
+	width: 100%;
+}
+
+.icons {
+	position: absolute;
+	top: 12px;
+	left: 15px;
 }

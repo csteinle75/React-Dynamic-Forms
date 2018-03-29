@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+//styles
+import 'font-awesome/css/font-awesome.min.css'
 import './Forms.css'
 
 class Field extends Component{
@@ -17,13 +19,19 @@ class Field extends Component{
 
 		if(this.props.data.type === 'textarea'){
 			return(
-				<textarea onChange={this.props.inputChange} id={this.props.data.id} placeholder="Your Comments" ></textarea>
+				<div className="posRel">
+					<i className={'fa ' + this.props.data.icon + ' icons'} ></i>
+					<textarea onChange={this.props.inputChange} id={this.props.data.id} placeholder="Your Comments" ></textarea>
+				</div>
 			)
 		}
 
 		//default action
 		return(
-			<input onChange={this.props.inputChange} type={this.props.data.type} id={this.props.data.id} placeholder={this.props.data.label} />		
+			<div className="posRel">
+				<i className={'fa ' + this.props.data.icon + ' icons'}></i>
+				<input onChange={this.props.inputChange} type={this.props.data.type} id={this.props.data.id} placeholder={this.props.data.label} />		
+			</div>
 		)
 
 	}
@@ -51,7 +59,7 @@ class Forms extends Component{
 					<h3 id="formHeader">Give Me Your Data</h3>
 					<form id="formContainer">
 						{this.props.fields.map((field, i) => <Field data={field} key={'field-' + i} inputChange={this.handleChange}/>)}
-						<button onClick={this.handleSubmit} id="submitForm">Submit</button>
+						<button onClick={this.handleSubmit} id="submitForm"><i className="fa fa-user"></i>Submit</button>
 					</form>
 				</div>
 			</div>
